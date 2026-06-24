@@ -30,6 +30,9 @@ Config.from_env()  # Load environment variables from env/overrides
 
 from database import Database
 
+db = Database()
+config = Config
+
 # ─── HEALTH CHECK SERVER ───────────────────────────────────────────────
 import http.server
 import socketserver
