@@ -89,7 +89,7 @@ NEW_USER_REF_COINS = 2   # Bonus for new users
 # ─── FORCE SUBSCRIBE CHANNELS ────────────────────────────────────────
 FORCE_CHANNELS = [
     {"name": "VIP DARK GOD",  "username": "vip_dark_god_prime"},
-    {"name": "NEXUS",         "username": "+zY5NXeQdHNo2OGM9"},
+    {"name": "NEXUS",         "username": "Nexusvipgod"},
 ]
 ```
 
@@ -126,7 +126,7 @@ FORCE_CHANNELS = [
 
 # Private channels (use invite link hash)
 FORCE_CHANNELS = [
-    {"name": "Private Channel", "username": "+zY5NXeQdHNo2OGM9"},
+    {"name": "NEXUS", "username": "Nexusvipgod"},
 ]
 ```
 
@@ -337,7 +337,7 @@ ADMIN_IDS = ["7702588711"]  # Your ID must match exactly
 # Check channel usernames are correct
 # For private channels, use invite link hash
 FORCE_CHANNELS = [
-    {"username": "+zY5NXeQdHNo2OGM9"},  # Private channel
+    {"username": "Nexusvipgod"},  # Public channel
 ]
 ```
 

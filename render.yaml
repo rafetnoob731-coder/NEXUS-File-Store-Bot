@@ -92,7 +92,7 @@ services:
         sync: false
         
       - key: FORCE_CHANNELS
-        value: "VIP DARK GOD:vip_dark_god_prime,NEXUS:+zY5NXeQdHNo2OGM9"
+        value: "VIP DARK GOD:vip_dark_god_prime,NEXUS:Nexusvipgod"
         sync: false
         
       - key: DB_PATH
