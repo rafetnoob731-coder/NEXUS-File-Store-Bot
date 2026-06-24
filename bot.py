@@ -30,6 +30,36 @@ Config.from_env()  # Load environment variables from env/overrides
 
 from database import Database
 
+# ─── HEALTH CHECK SERVER ───────────────────────────────────────────────
+import http.server
+import socketserver
+import threading
+
+HEALTH_PORT = int(os.getenv("PORT", 8080))
+
+def run_health_server():
+    """Run a simple HTTP server for Render health checks."""
+    class HealthHandler(http.server.BaseHTTPRequestHandler):
+        def do_GET(self):
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(b'{"status": "ok"}')
+        
+        def log_message(self, format, *args):
+            logger.debug(f"Health: {format % args}")
+    
+    try:
+        server = socketserver.TCPServer(("0.0.0.0", HEALTH_PORT), HealthHandler)
+        logger.info(f"✅ Health server running on port {HEALTH_PORT}")
+        server.serve_forever()
+    except Exception as e:
+        logger.warning(f"Health server could not start: {e}")
+
+# Start health check in a background thread
+health_thread = threading.Thread(target=run_health_server, daemon=True)
+health_thread.start()
+
 # ─── BOT SETUP ──────────────────────────────────────────────────────────
 logging.basicConfig(
     format=Config.LOG_FORMAT,
