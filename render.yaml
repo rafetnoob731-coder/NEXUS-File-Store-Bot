@@ -1,0 +1,129 @@
+# ─── NEXUS FILE STORE BOT ──────────────────────────────────────────────
+# Deploy on Render.com with this configuration
+# Made with ❤️ by @VIP_DARK_GOD
+# ─────────────────────────────────────────────────────────────────────────
+
+services:
+  - type: worker
+    name: nexus-file-store-bot
+    runtime: python
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    startCommand: python bot.py
+    autoDeploy: true
+    
+    # ─── ENVIRONMENT VARIABLES ──────────────────────────────────────────
+    envVars:
+      - key: BOT_TOKEN
+        value: 8659779077:AAHGw7R-Z61xu6eFGErf97OPJOv0REUQcXg
+        sync: false
+        
+      - key: ADMIN_IDS
+        value: 7702588711,7892915425,8526073588
+        sync: false
+        
+      - key: OWNER_USERNAME
+        value: nexus_pro_dev
+        sync: false
+        
+      - key: OWNER_NAME
+        value: NEXUS Pro Dev
+        sync: false
+        
+      - key: REFERRAL_COINS
+        value: 1
+        sync: false
+        
+      - key: NEW_USER_REF_COINS
+        value: 2
+        sync: false
+        
+      - key: STARTING_COINS
+        value: 0
+        sync: false
+        
+      - key: FILES_PER_PAGE
+        value: 5
+        sync: false
+        
+      - key: CODE_EXPIRY_DAYS
+        value: 30
+        sync: false
+        
+      - key: CODE_LENGTH
+        value: 10
+        sync: false
+        
+      - key: SUBSCRIPTION_CACHE_MINUTES
+        value: 10
+        sync: false
+        
+      - key: RATE_LIMIT_ENABLED
+        value: true
+        sync: false
+        
+      - key: RATE_LIMIT_CALLS
+        value: 30
+        sync: false
+        
+      - key: RATE_LIMIT_PERIOD
+        value: 60
+        sync: false
+        
+      - key: ENABLE_LEADERBOARD
+        value: true
+        sync: false
+        
+      - key: ENABLE_REFERRALS
+        value: true
+        sync: false
+        
+      - key: ENABLE_REDEEM_CODES
+        value: true
+        sync: false
+        
+      - key: ENABLE_FORCE_SUBSCRIBE
+        value: true
+        sync: false
+        
+      - key: ENABLE_BROADCAST
+        value: true
+        sync: false
+        
+      - key: FORCE_CHANNELS
+        value: "VIP DARK GOD:vip_dark_god_prime,NEXUS:+zY5NXeQdHNo2OGM9"
+        sync: false
+        
+      - key: DB_PATH
+        value: filestore.db
+        sync: false
+        
+      - key: LOG_LEVEL
+        value: INFO
+        sync: false
+        
+      - key: BROADCAST_BATCH_SIZE
+        value: 30
+        sync: false
+        
+      - key: BROADCAST_SLEEP_SECONDS
+        value: 1
+        sync: false
+
+    # ─── RESOURCE SETTINGS ──────────────────────────────────────────────
+    plan: free  # Use 'starter' for more resources
+    
+    # ─── HEALTH CHECK ──────────────────────────────────────────────────
+    healthCheckPath: /health
+    
+    # ─── PERSISTENT STORAGE ────────────────────────────────────────────
+    disk:
+      name: nexus-bot-data
+      mountPath: /data
+      sizeGB: 1
+
+# ─── CREDITS ─────────────────────────────────────────────────────────────
+# ⚡ NEXUS STORE — Render Deployment Configuration
+# 🔥 Made with ❤️ by @VIP_DARK_GOD
+# ─────────────────────────────────────────────────────────────────────────
